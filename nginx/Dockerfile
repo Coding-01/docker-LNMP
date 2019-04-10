@@ -34,15 +34,8 @@ ENTRYPOINT ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
 
 
 
-
-
-
-
 #BUILD
     docker build -t nginx:1.9.7 .
-
-
-
 
 
 Usage:
