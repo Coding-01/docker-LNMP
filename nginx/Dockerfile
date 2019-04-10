@@ -24,7 +24,6 @@ RUN [ ! -d /opop ] && mkdir /opop && cd /opop \
 
 #配置nginx
 ENV HTTP_PHP_CONFIG \\\n\\\t#php\\\n\\\tlocation ~ \\\\.php$ {\\\n\\\t\\\troot    html;\\\n\\\t\\\tfastcgi_pass   php7:9000;\\\n\\\t\\\tfastcgi_index    index.php;\\\n\\\t\\\tfastcgi_param  SCRIPT_FILENAME    /usr/local/nginx/html\$fastcgi_script_name;\\\n\\\t\\\tinclude    fastcgi_params;\\\n\\\t}\\\n\\\n\\\t
-ENV HTTP_PHP_CONFIG sed -i "s/index index.html index.htm;/index index.php index.html index.htm;/" /usr/local/nginx/conf/nginx.conf
 
 RUN sed -i -e "s@# deny access to .htaccess files, if Apache@${HTTP_PHP_CONFIG}# deny access to .htaccess files, if Apache@" /usr/local/nginx/conf/nginx.conf 
 
