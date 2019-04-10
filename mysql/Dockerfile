@@ -1,7 +1,9 @@
 FROM mysql:5.7
 LABEL MAINTAINER="2775147135@qq.com"
+
 ENV TZ "Asia/Shanghai"
-COPY config/my.cnf /etc/mysql/my.cnf
+
+#COPY config/my.cnf /etc/mysql/my.cnf
 
 
 
